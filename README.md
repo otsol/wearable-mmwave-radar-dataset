@@ -37,8 +37,8 @@ The novel idea presented in the article is to place a mmWave radar pointing towa
 ## Description of the Dataset
 
 ### File Structure
-The file structure is as follows:
-The folder "data" includes a subdirectory for each participants from "person_12" to "person_22". Under each participant, there are 10 folders labeled after the gesture name. The folder names are the same as in the table "Ten Gestures". In addition, each directory representing a participant has a "metadata.txt" file which includes physiological measurements of the participant, including age, height etc.
+The file structure of the *Hugging Face dataset* repository is as follows:
+The folder "wearable-mmwave-radar-dataset" includes a subdirectory for each participants from "person_12" to "person_22". Under each participant, there are 10 folders labeled after the gesture name. The folder names are the same as in the table "Ten Gestures". In addition, each directory representing a participant has a "metadata.txt" file which includes physiological measurements of the participant, including age, height etc.
 ```
 wearable-mmwave-radar-dataset/
 └── person_12/
@@ -52,15 +52,15 @@ wearable-mmwave-radar-dataset/
 └── person_22/
 └── sequence.json
 ```
-Each directory labeled after gestures has 30 sample files from "sample_0.npy" to "sample_29.npy". These are the individual gesture samples. In addition, the radar parameters are have been saved to "data/sequence.json" file. Radar parameters do not change between classes or users.
+Each directory labeled after gestures has 30 sample files from "sample_0.npy" to "sample_29.npy". These are the individual gesture samples. In addition, the radar parameters are have been saved to "wearable-mmwave-radar-dataset/sequence.json" file. Radar parameters do not change between classes or users.
 
 ### Format of .npy Files
-The reforded data is in numpy float32 format. In the .npy files, the data is saved as a 4D tensor with (F, C, N, M) dimensions, where F is the number of radar frames in time domain, C is the number of receiver antennas, N is the number of up-chirps in one frame and M is the number of data points. The collected tensors have shape (71,3,64,64).
+The recorded data is in numpy float32 format. In the .npy files, the data is saved as a 4D tensor with (F, C, N, M) dimensions, where F is the number of radar frames in time domain, C is the number of receiver antennas, N is the number of up-chirps in one frame and M is the number of data points. The collected tensors have shape (71,3,64,64).
 
 ### Minimal Example
 ```
 import numpy as np
-data = np.load("data3/person_11/pinch-index/sample_1.npy")
+data = np.load("wearable-mmwave-radar-dataset/person_11/pinch-index/sample_1.npy")
 print("One sample")
 print(data.dtype)
 print(data.shape)
